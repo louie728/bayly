@@ -11,7 +11,79 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140327170308) do
+ActiveRecord::Schema.define(version: 20140401180419) do
+
+  create_table "cart_lines", force: true do |t|
+    t.integer  "cart_id"
+    t.integer  "index"
+    t.integer  "status"
+    t.integer  "item_id"
+    t.string   "note"
+    t.integer  "price_in_cents"
+    t.integer  "qty"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "carts", force: true do |t|
+    t.integer  "customer_id"
+    t.integer  "index"
+    t.integer  "cusnumber"
+    t.integer  "status"
+    t.integer  "user_id"
+    t.string   "descr"
+    t.string   "comments"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "customers", force: true do |t|
+    t.string   "name"
+    t.integer  "cusnumber"
+    t.integer  "index"
+    t.string   "address"
+    t.string   "address1"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "phone"
+    t.string   "fax"
+    t.string   "email"
+    t.integer  "repid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "order_lines", force: true do |t|
+    t.integer  "order_id"
+    t.integer  "status"
+    t.integer  "item_id"
+    t.string   "note"
+    t.integer  "price_in_cents"
+    t.integer  "qty"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "orders", force: true do |t|
+    t.integer  "customer_id"
+    t.integer  "cusnumber"
+    t.integer  "status"
+    t.integer  "user_id"
+    t.string   "descr"
+    t.string   "comments"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "products", force: true do |t|
+    t.string  "item_no"
+    t.string  "index"
+    t.string  "desc"
+    t.string  "add_desc"
+    t.string  "type"
+    t.integer "price_in_cents"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

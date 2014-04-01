@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cart_id: 1
+  status: 1
+  item_id: 1
+  note: MyString
+  price_in_cents: 1
+  qty: 1
+
+two:
+  cart_id: 1
+  status: 1
+  item_id: 1
+  note: MyString
+  price_in_cents: 1
+  qty: 1

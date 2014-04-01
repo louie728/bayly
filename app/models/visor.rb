@@ -1,0 +1,2 @@
+class Visor < Product
+end

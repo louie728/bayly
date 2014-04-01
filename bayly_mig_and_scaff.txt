@@ -1,0 +1,27 @@
+set up customers:
+rails g scaffold customer name:string cusnumber:integer address:string address1:string city:string state:string zip:string phone:string fax:string email:string repid:integer
+
+set up cart:
+rails g scaffold cart customer_id:integer cusnumber:integer status:integer user_id:integer descr:string comments:string
+
+set up cart lines:
+rails g scaffold cart_line cart_id:integer status:integer item_id:integer note:string price_in_cents:integer qty:integer
+
+set up product (STI):
+rails g migration CreateProduct item_no:string desc:string add_desc:string type:string price_in_cents:integer
+set up models:
+band
+button
+color
+item
+special
+strap
+style
+visor
+
+set up order:
+rails g scaffold order customer_id:integer cusnumber:integer status:integer user_id:integer descr:string comments:string
+
+set up order lines:
+rails g scaffold order_line order_id:integer status:integer item_id:integer note:string price_in_cents:integer qty:integer
+
