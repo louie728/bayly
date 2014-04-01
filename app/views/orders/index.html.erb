@@ -4,7 +4,6 @@
   <thead>
     <tr>
       <th>Customer</th>
-      <th>Cusnumber</th>
       <th>Status</th>
       <th>User</th>
       <th>Descr</th>
@@ -17,7 +16,6 @@
     <% @orders.each do |order| %>
       <tr>
         <td><%= order.customer_id %></td>
-        <td><%= order.cusnumber %></td>
         <td><%= order.status %></td>
         <td><%= order.user_id %></td>
         <td><%= order.descr %></td>

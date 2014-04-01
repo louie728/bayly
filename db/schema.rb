@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140401180419) do
+ActiveRecord::Schema.define(version: 20140401182830) do
 
   create_table "cart_lines", force: true do |t|
     t.integer  "cart_id"
@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 20140401180419) do
   create_table "carts", force: true do |t|
     t.integer  "customer_id"
     t.integer  "index"
-    t.integer  "cusnumber"
     t.integer  "status"
     t.integer  "user_id"
     t.string   "descr"
@@ -67,7 +66,7 @@ ActiveRecord::Schema.define(version: 20140401180419) do
 
   create_table "orders", force: true do |t|
     t.integer  "customer_id"
-    t.integer  "cusnumber"
+    t.integer  "index"
     t.integer  "status"
     t.integer  "user_id"
     t.string   "descr"
@@ -99,8 +98,10 @@ ActiveRecord::Schema.define(version: 20140401180419) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.integer  "customer_id"
   end
 
+  add_index "users", ["customer_id"], name: "index_users_on_customer_id", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
