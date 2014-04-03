@@ -10,5 +10,7 @@ class CreateOrderLines < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :order_lines,[:order_id,:status,:item_id]
   end
+
 end

@@ -20,7 +20,7 @@ style
 visor
 
 set up order:
-rails g scaffold order customer_id:integer status:integer user_id:integer descr:string comments:string
+rails g scaffold order customer_id:integer status:integer user_id:integer descr:string comments:string po:string
 
 set up order lines:
 rails g scaffold order_line order_id:integer status:integer item_id:integer note:string price_in_cents:integer qty:integer

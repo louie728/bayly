@@ -1,5 +1,5 @@
 class OrderLine < ActiveRecord::Base
   belongs_to :order
-  has_many :items
+  belongs_to :product, foreign_key: :item_id
 
-end
+ end

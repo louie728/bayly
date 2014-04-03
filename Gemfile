@@ -14,6 +14,7 @@ gem 'devise'
 gem 'mysql2'
 gem 'simple_form'
 gem 'therubyracer', :platform=>:ruby
+gem 'money', :git => "git://github.com/collectiveidea/money.git", :require => 'money/rails'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]

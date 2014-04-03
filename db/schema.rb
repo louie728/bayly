@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 20140401182830) do
 
   create_table "cart_lines", force: true do |t|
     t.integer  "cart_id"
-    t.integer  "index"
     t.integer  "status"
     t.integer  "item_id"
     t.string   "note"
@@ -25,9 +24,10 @@ ActiveRecord::Schema.define(version: 20140401182830) do
     t.datetime "updated_at"
   end
 
+  add_index "cart_lines", ["cart_id", "item_id"], name: "index_cart_lines_on_cart_id_and_item_id", using: :btree
+
   create_table "carts", force: true do |t|
     t.integer  "customer_id"
-    t.integer  "index"
     t.integer  "status"
     t.integer  "user_id"
     t.string   "descr"
@@ -36,22 +36,23 @@ ActiveRecord::Schema.define(version: 20140401182830) do
     t.datetime "updated_at"
   end
 
+  add_index "carts", ["customer_id", "user_id"], name: "index_carts_on_customer_id_and_user_id", using: :btree
+
   create_table "customers", force: true do |t|
     t.string   "name"
     t.integer  "cusnumber"
-    t.integer  "index"
     t.string   "address"
     t.string   "address1"
     t.string   "city"
     t.string   "state"
     t.string   "zip"
     t.string   "phone"
-    t.string   "fax"
     t.string   "email"
-    t.integer  "repid"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "customers", ["cusnumber"], name: "index_customers_on_cusnumber", using: :btree
 
   create_table "order_lines", force: true do |t|
     t.integer  "order_id"
@@ -64,25 +65,30 @@ ActiveRecord::Schema.define(version: 20140401182830) do
     t.datetime "updated_at"
   end
 
+  add_index "order_lines", ["order_id", "status", "item_id"], name: "index_order_lines_on_order_id_and_status_and_item_id", using: :btree
+
   create_table "orders", force: true do |t|
     t.integer  "customer_id"
-    t.integer  "index"
     t.integer  "status"
     t.integer  "user_id"
     t.string   "descr"
     t.string   "comments"
+    t.string   "po"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "orders", ["customer_id", "user_id", "po"], name: "index_orders_on_customer_id_and_user_id_and_po", using: :btree
+
   create_table "products", force: true do |t|
     t.string  "item_no"
-    t.string  "index"
     t.string  "desc"
     t.string  "add_desc"
     t.string  "type"
     t.integer "price_in_cents"
   end
+
+  add_index "products", ["item_no", "type"], name: "index_products_on_item_no_and_type", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

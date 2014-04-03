@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/collectiveidea/money.git
+  revision: 648a347c85f4efef41bba5306263dab14d0fe4c5
+  specs:
+    money (1.7.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -159,6 +165,7 @@ DEPENDENCIES
   hub
   jbuilder (~> 2.0)
   jquery-rails
+  money!
   mysql2
   passenger
   quiet_assets
